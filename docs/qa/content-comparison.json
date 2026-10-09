@@ -1,0 +1,33 @@
+{
+  "comparedRoutes": 27,
+  "baseURL": "http://127.0.0.1:4173",
+  "checkedAt": "2026-10-08T15:50:43.058Z",
+  "comparison": "Exact text comparison of source prose over 65 characters; original product summaries may be regrouped on their detail pages.",
+  "movedOrRegrouped": [
+    {
+      "route": "/",
+      "text": "Edge SCADA that monitors, controls and analyses your plants from your own server."
+    },
+    {
+      "route": "/",
+      "text": "IoT datalogger that collects real-time plant data and pushes it to the cloud or a local server."
+    },
+    {
+      "route": "/",
+      "text": "Power plant controller for active power, reactive power, power factor and ramp rate at plant, block and inverter level."
+    },
+    {
+      "route": "/",
+      "text": "Zero export control at the edge, so no solar power reaches the grid."
+    },
+    {
+      "route": "/",
+      "text": "Load management with DG sync: adjusts solar output to live load, grid and diesel generator status."
+    },
+    {
+      "route": "/",
+      "text": "Forecasts solar plant generation from weather data: day-ahead, week-ahead and intra-day reports."
+    }
+  ],
+  "missingAcrossSite": []
+}

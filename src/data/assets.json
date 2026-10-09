@@ -1,0 +1,801 @@
+[
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-header-logo.webp",
+    "local": "/assets/afa58b55c8-eman-header-logo.webp",
+    "alt": "EnerMAN Technologies home",
+    "uses": [
+      "/",
+      "/products/",
+      "/eti-sol/",
+      "/eti-edge-local-scada/",
+      "/eti-log/",
+      "/eti-ppc-power-plant-controller/",
+      "/eti-zes-zero-export-system/",
+      "/eti-lms-load-management-system/",
+      "/eti-cast-solar-generation-forecasting/",
+      "/resource/",
+      "/news-updates/",
+      "/about-us/",
+      "/awards/",
+      "/contact/",
+      "/inquiry-form/",
+      "/how-enerman-integrated-ppc-for-a-350-mw-solar-plant/",
+      "/why-plant-owners-replace-their-scada/",
+      "/eti-sol-dashboard-reports-alerts-kpis/",
+      "/terms-and-conditions/",
+      "/pm-kusum-yojana-benefits-for-farmers-and-how-enerman-technologies-supports-with-iot-scada-solutions/",
+      "/iot-scada-solar-operations/",
+      "/enerman-eti-product-family/",
+      "/enerman-solar-pv-performance-qa-ashok-dm/",
+      "/eti-sol-plant-data-from-any-device/",
+      "/eti-log-dongle-over-on-board-4g/",
+      "/team/",
+      "/why-iot-scada-is-revolutionizing-solar-power-plant-operations/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 19758,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/image.png",
+    "local": "/assets/adcd934a8e-image.png",
+    "alt": "ETi-SOL Inverter dashboard: hourly energy and irradiance graph with inverter-wise block list",
+    "uses": [
+      "/",
+      "/products/",
+      "/eti-edge-local-scada/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 76976,
+    "status": "downloaded",
+    "optimized": "/assets/adcd934a8e-image.webp",
+    "optimizedBytes": 60336
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-ntpc.webp",
+    "local": "/assets/339a2eb367-eman-logo-ntpc.webp",
+    "alt": "NTPC Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 11470,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-nlc.webp",
+    "local": "/assets/9015d901f0-eman-logo-nlc.webp",
+    "alt": "NLC India Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 27122,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-hal.webp",
+    "local": "/assets/0a7785e5d8-eman-logo-hal.webp",
+    "alt": "Hindustan Aeronautics Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 28490,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-bhel.webp",
+    "local": "/assets/6fbf834919-eman-logo-bhel.webp",
+    "alt": "Bharat Heavy Electricals Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 7194,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-bel.webp",
+    "local": "/assets/bfc63bb15d-eman-logo-bel.webp",
+    "alt": "Bharat Electronics Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 11284,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-gsecl.webp",
+    "local": "/assets/ea001f94a9-eman-logo-gsecl.webp",
+    "alt": "Gujarat State Electricity Corporation Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 18818,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-ccl.webp",
+    "local": "/assets/c656645957-eman-logo-ccl.webp",
+    "alt": "Central Coalfields Limited",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 7768,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-iisc.webp",
+    "local": "/assets/f3b36315e0-eman-logo-iisc.webp",
+    "alt": "Indian Institute of Science",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 11724,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-logo-aiims.webp",
+    "local": "/assets/e5acb8379b-eman-logo-aiims.webp",
+    "alt": "All India Institute of Medical Sciences",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 18898,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-home-control-room.webp",
+    "local": "/assets/ea0232431b-eman-home-control-room.webp",
+    "alt": "Control room wall of monitors showing ETi-SOL dashboards",
+    "uses": [
+      "/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 177674,
+    "status": "downloaded",
+    "optimized": "/assets/ea0232431b-eman-home-control-room.webp",
+    "optimizedBytes": 122514
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-350mw-case-study.webp",
+    "local": "/assets/955e845c83-eman-article-350mw-case-study.webp",
+    "alt": "EnerMAN dashboard on desktop, tablet and phone",
+    "uses": [
+      "/",
+      "/resource/",
+      "/how-enerman-integrated-ppc-for-a-350-mw-solar-plant/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 34648,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-replace-scada-solar-plant.webp",
+    "local": "/assets/f9995a4867-eman-article-replace-scada-solar-plant.webp",
+    "alt": "Aerial panoramic view of a ground-mounted solar PV plant",
+    "uses": [
+      "/",
+      "/why-plant-owners-replace-their-scada/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 41652,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-dashboard-kpis.webp",
+    "local": "/assets/eae3d3d40e-eman-article-dashboard-kpis.webp",
+    "alt": "ETi-SOL plant details with generation, PR, CUF and availability",
+    "uses": [
+      "/",
+      "/eti-sol-dashboard-reports-alerts-kpis/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 34992,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-eti-sol-console-home.webp",
+    "local": "/assets/19c25385e4-eman-eti-sol-console-home.webp",
+    "alt": "ETi-SOL home screen: fleet capacity, energy and eco savings above the plant list, with each plant's status, energy, yield, CUF and PR",
+    "uses": [
+      "/products/",
+      "/eti-sol/",
+      "/eti-sol/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 81190,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-eti-sol-console-plant-overview.webp",
+    "local": "/assets/15460d6ac7-eman-eti-sol-console-plant-overview.webp",
+    "alt": "ETi-SOL plant overview: KPI metrics by day, month and year, with plant and grid availability, carbon footprint and performance metrics",
+    "uses": [
+      "/eti-sol/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 86866,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-sol-map-view.webp",
+    "local": "/assets/e6ca36c1fc-eman-eti-sol-map-view.webp",
+    "alt": "ETi-SOL map view: SCB and inverter room markers on a satellite image of the plant",
+    "uses": [
+      "/eti-sol/",
+      "/eti-sol-dashboard-reports-alerts-kpis/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 35340,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-sol-alerts.webp",
+    "local": "/assets/3afdbccde0-eman-eti-sol-alerts.webp",
+    "alt": "ETi-SOL alert details for an underperforming string",
+    "uses": [
+      "/eti-sol/",
+      "/eti-sol-dashboard-reports-alerts-kpis/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 33774,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-eti-sol-console-ecast.webp",
+    "local": "/assets/5911113b76-eman-eti-sol-console-ecast.webp",
+    "alt": "ETi-SOL forecast report: actual against forecast generation through the day, with the range and deviation chart",
+    "uses": [
+      "/eti-sol/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 61214,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-sol-apps-devices.webp",
+    "local": "/assets/7cd4b8a89d-eman-eti-sol-apps-devices.webp",
+    "alt": "ETi-SOL dashboard on a laptop, desktop monitor, tablet and phone",
+    "uses": [
+      "/eti-sol/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 49870,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-log-unit.webp",
+    "local": "/assets/ad1beae043-eman-eti-log-unit.webp",
+    "alt": "ETi-LOG IoT datalogger, DIN-rail unit",
+    "uses": [
+      "/eti-log/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 20210,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/eti-ppc-architecture.avif",
+    "local": "/assets/7c795f1141-eti-ppc-architecture.avif",
+    "alt": "ETi-PPC architecture: existing SCADA panels linked to the ETi-PPC server, the utility dispatch centre and admin control access",
+    "uses": [
+      "/eti-ppc-power-plant-controller/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 32763,
+    "status": "downloaded",
+    "optimized": "/assets/7c795f1141-eti-ppc-architecture.webp",
+    "optimizedBytes": 26866
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-zes-zero-export-system-architecture.webp",
+    "local": "/assets/7ad71efff8-eman-eti-zes-zero-export-system-architecture.webp",
+    "alt": "ETi-ZES architecture without DG: grid, bi-directional meter, breaker, distribution board, inverters and load",
+    "uses": [
+      "/eti-zes-zero-export-system/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 59792,
+    "status": "downloaded",
+    "optimized": "/assets/7ad71efff8-eman-eti-zes-zero-export-system-architecture.webp",
+    "optimizedBytes": 48788
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-zes-zero-export-system-architecture-with-dg.webp",
+    "local": "/assets/6ceb6868e7-eman-eti-zes-zero-export-system-architecture-with-dg.webp",
+    "alt": "ETi-ZES architecture with DG: diesel generator and multifunction meter added to the zero export loop",
+    "uses": [
+      "/eti-zes-zero-export-system/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 59806,
+    "status": "downloaded",
+    "optimized": "/assets/6ceb6868e7-eman-eti-zes-zero-export-system-architecture-with-dg.webp",
+    "optimizedBytes": 49886
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-eti-lms-load-management-system-architecture.webp",
+    "local": "/assets/3d5c6307ab-eman-eti-lms-load-management-system-architecture.webp",
+    "alt": "ETi-LMS architecture: grid with bi-directional meter, diesel generator (DG) with multifunctional meter, distribution board, load and solar inverters, all linked to ETi-LMS",
+    "uses": [
+      "/eti-lms-load-management-system/",
+      "/enerman-eti-product-family/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 25466,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-about-cabinet.webp",
+    "local": "/assets/85d1627245-eman-about-cabinet.webp",
+    "alt": "An open EnerMAN panel cabinet: rows of EnerMAN units and wiring",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 143814,
+    "status": "downloaded",
+    "optimized": "/assets/85d1627245-eman-about-cabinet.webp",
+    "optimizedBytes": 140912
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-about-ashok-dm.webp",
+    "local": "/assets/c5e6b5b9cd-eman-about-ashok-dm.webp",
+    "alt": "Ashok D M, CEO and Managing Director, EnerMAN Technologies",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 15096,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-about-nithin-b.webp",
+    "local": "/assets/4c092cd200-eman-about-nithin-b.webp",
+    "alt": "Nithin B, Director of Finance, EnerMAN Technologies",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 14608,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-about-ravi-shanker-3.webp",
+    "local": "/assets/9d768242d8-eman-about-ravi-shanker-3.webp",
+    "alt": "Ravi Shanker, VP, Business Development, EnerMAN Technologies",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 16942,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-about-jithesh-dev.webp",
+    "local": "/assets/b372650fb4-eman-about-jithesh-dev.webp",
+    "alt": "Jithesh Dev, Advisor, Business Development, EnerMAN Technologies",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 5776,
+    "status": "downloaded",
+    "optimized": "/assets/b372650fb4-eman-about-jithesh-dev.webp",
+    "optimizedBytes": 5560
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-about-panel-build.webp",
+    "local": "/assets/8163e5be16-eman-about-panel-build.webp",
+    "alt": "An EnerMAN panel being assembled at the Bengaluru office",
+    "uses": [
+      "/about-us/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 127100,
+    "status": "downloaded",
+    "optimized": "/assets/8163e5be16-eman-about-panel-build.webp",
+    "optimizedBytes": 125074
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/Global-Solar-Expo-Coimbatore-2025-724x1024.jpeg",
+    "local": "/assets/d6182c01d0-Global-Solar-Expo-Coimbatore-2025-724x1024.jpeg",
+    "alt": "Tamil Nadu Annual Solar Awards 2025 certificate: Solar IT & Data Analytics Company of the Year, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 163568,
+    "status": "downloaded",
+    "optimized": "/assets/d6182c01d0-Global-Solar-Expo-Coimbatore-2025-724x1024.webp",
+    "optimizedBytes": 101200
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/17th-corporate-Anniversary-May-2025-724x1024.jpeg",
+    "local": "/assets/efa66a089f-17th-corporate-Anniversary-May-2025-724x1024.jpeg",
+    "alt": "ReNfra Energy 17th Corporate Anniversary certificate: Contractor Excellence Award (FY 2024-25), EnerMAN",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 157611,
+    "status": "downloaded",
+    "optimized": "/assets/efa66a089f-17th-corporate-Anniversary-May-2025-724x1024.webp",
+    "optimizedBytes": 90852
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-awards-karnataka-2025-724x1024.webp",
+    "local": "/assets/528347b0e6-eman-awards-karnataka-2025-724x1024.webp",
+    "alt": "Karnataka Annual Solar Awards 2025 certificate: Power Plant Controller of the Year for the State of Karnataka, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 66280,
+    "status": "downloaded",
+    "optimized": "/assets/528347b0e6-eman-awards-karnataka-2025-724x1024.webp",
+    "optimizedBytes": 64312
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/Tamilnadu-Annual-Solar-Awards-2024-724x1024.jpeg",
+    "local": "/assets/fd09df8e23-Tamilnadu-Annual-Solar-Awards-2024-724x1024.jpeg",
+    "alt": "Tamil Nadu Annual Solar Awards 2024 certificate: Solar IT & Data Analytics Company of the Year, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 139848,
+    "status": "downloaded",
+    "optimized": "/assets/fd09df8e23-Tamilnadu-Annual-Solar-Awards-2024-724x1024.webp",
+    "optimizedBytes": 73600
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/Karnataka-Annual-Solar-Awards-2024-724x1024.jpeg",
+    "local": "/assets/f5599cff82-Karnataka-Annual-Solar-Awards-2024-724x1024.jpeg",
+    "alt": "Karnataka Annual Solar Awards 2024 certificate: Solar IT & Data Analytics Company of the Year for Karnataka State, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 123328,
+    "status": "downloaded",
+    "optimized": "/assets/f5599cff82-Karnataka-Annual-Solar-Awards-2024-724x1024.webp",
+    "optimizedBytes": 65402
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/siliconindia-startup-city-10-best-green-energy-startups-2023-724x1024.jpeg",
+    "local": "/assets/76c66287a0-siliconindia-startup-city-10-best-green-energy-startups-2023-724x1024.jpeg",
+    "alt": "SiliconIndia Startup City certificate: 10 Best Green Energy Startups 2023, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 104981,
+    "status": "downloaded",
+    "optimized": "/assets/76c66287a0-siliconindia-startup-city-10-best-green-energy-startups-2023-724x1024.webp",
+    "optimizedBytes": 50438
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/Gujarat-State-Annual-Solar-awards-2022-724x1024.jpeg",
+    "local": "/assets/f57a91d7c0-Gujarat-State-Annual-Solar-awards-2022-724x1024.jpeg",
+    "alt": "Gujarat State Annual Solar Awards 2022 certificate: Solar Project Monitoring Technology Company of the Year, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 139977,
+    "status": "downloaded",
+    "optimized": "/assets/f57a91d7c0-Gujarat-State-Annual-Solar-awards-2022-724x1024.webp",
+    "optimizedBytes": 75234
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/10/eman-awards-2020-solar-sector-724x1024.webp",
+    "local": "/assets/97d3b41350-eman-awards-2020-solar-sector-724x1024.webp",
+    "alt": "EQ's Karnataka State Annual Solar Awards 2020 certificate: Outstanding Achievement in Solar Sector, EnerMAN",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 63408,
+    "status": "downloaded",
+    "optimized": "/assets/97d3b41350-eman-awards-2020-solar-sector-724x1024.webp",
+    "optimizedBytes": 59684
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/06/Tamilnadu-Annual-Solar-Awards-2023-724x1024.jpeg",
+    "local": "/assets/8adf282f20-Tamilnadu-Annual-Solar-Awards-2023-724x1024.jpeg",
+    "alt": "Tamil Nadu Annual Solar Awards 2023 certificate: Solar IT & Data Analytics Company of the Year, EnerMAN Technologies",
+    "uses": [
+      "/awards/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 142970,
+    "status": "downloaded",
+    "optimized": "/assets/8adf282f20-Tamilnadu-Annual-Solar-Awards-2023-724x1024.webp",
+    "optimizedBytes": 82364
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-350mw-flow-diagram.webp",
+    "local": "/assets/299f263b1c-eman-article-350mw-flow-diagram.webp",
+    "alt": "Flow diagram of the inverter controller: ABT meter readings sorted into dead band, over voltage, under voltage and other fluctuations, each with its action on the inverters",
+    "uses": [
+      "/how-enerman-integrated-ppc-for-a-350-mw-solar-plant/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 28572,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-pm-kusum-dashboard.webp",
+    "local": "/assets/d16b39eb6a-eman-article-pm-kusum-dashboard.webp",
+    "alt": "EnerMAN dashboard on a tablet, with a radial chart and a heat map",
+    "uses": [
+      "/pm-kusum-yojana-benefits-for-farmers-and-how-enerman-technologies-supports-with-iot-scada-solutions/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 66710,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-eti-family-apm.webp",
+    "local": "/assets/06af126922-eman-article-eti-family-apm.webp",
+    "alt": "Asset Performance Management diagram: ETi-SOL, ETi-SLDC, ETi-CAST, ETi-LMS, ETi-PPC and ETi-ZES around the EnerMAN dashboard",
+    "uses": [
+      "/enerman-eti-product-family/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 55300,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-ashok-qa-ashok-dm.webp",
+    "local": "/assets/de9e36d503-eman-article-ashok-qa-ashok-dm.webp",
+    "alt": "Ashok D M, CEO and Managing Director, EnerMAN Technologies",
+    "uses": [
+      "/enerman-solar-pv-performance-qa-ashok-dm/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 19616,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-plant-data-eti-sol-features.webp",
+    "local": "/assets/be35f8470c-eman-article-plant-data-eti-sol-features.webp",
+    "alt": "ETi-SOL features: alerts, data sharing by FTP, API and OPC, advanced analytics, remote monitoring and control, OMS and DGR reports, SCADA retrofit, centralised monitoring",
+    "uses": [
+      "/eti-sol-plant-data-from-any-device/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 182464,
+    "status": "downloaded",
+    "optimized": "/assets/be35f8470c-eman-article-plant-data-eti-sol-features.webp",
+    "optimizedBytes": 151252
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-plant-data-modbus-ethernet.webp",
+    "local": "/assets/b9a80e5301-eman-article-plant-data-modbus-ethernet.webp",
+    "alt": "A two-wire Modbus RTU cable beside an Ethernet TCP cable",
+    "uses": [
+      "/eti-sol-plant-data-from-any-device/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 10008,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-plant-data-device-network.webp",
+    "local": "/assets/2ada68f997-eman-article-plant-data-device-network.webp",
+    "alt": "String combiner box, transformer, weather station, inverter and grid linked to a plant dashboard on a tablet",
+    "uses": [
+      "/eti-sol-plant-data-from-any-device/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 30542,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2026/09/eman-article-dongle-dongle-vs-4g.webp",
+    "local": "/assets/4b94c7fd60-eman-article-dongle-dongle-vs-4g.webp",
+    "alt": "A 4G dongle beside an on-board 4G module",
+    "uses": [
+      "/eti-log-dongle-over-on-board-4g/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 104972,
+    "status": "downloaded",
+    "optimized": "/assets/4b94c7fd60-eman-article-dongle-dongle-vs-4g.webp",
+    "optimizedBytes": 80788
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/EnerMAN-LOGO-without-background-1024x581.png",
+    "local": "/assets/c47717d960-EnerMAN-LOGO-without-background-1024x581.png",
+    "alt": "EnerMAN Technologies logo",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 28203,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/20241010_171528-Ayudha-Puja-4-300x139.jpg",
+    "local": "/assets/deb599bc08-20241010_171528-Ayudha-Puja-4-300x139.jpg",
+    "alt": "20241010_171528-Ayudha-Puja-4",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 68330,
+    "status": "downloaded",
+    "optimized": "/assets/deb599bc08-20241010_171528-Ayudha-Puja-4-300x139.webp",
+    "optimizedBytes": 12332
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/20241010_170514-team-Ayudha-puja-2-300x139.jpg",
+    "local": "/assets/8cefd29ccf-20241010_170514-team-Ayudha-puja-2-300x139.jpg",
+    "alt": "20241010_170514 -team -Ayudha puja-2",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 11156,
+    "status": "downloaded",
+    "optimized": "/assets/8cefd29ccf-20241010_170514-team-Ayudha-puja-2-300x139.webp",
+    "optimizedBytes": 9576
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/3cfaa07e-e88f-4cdb-966a-1904fafd10cc-1024x574.jpg",
+    "local": "/assets/93800df01e-3cfaa07e-e88f-4cdb-966a-1904fafd10cc-1024x574.jpg",
+    "alt": "The EnerMAN team, group photograph in company polo shirts",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 165613,
+    "status": "downloaded",
+    "optimized": "/assets/93800df01e-3cfaa07e-e88f-4cdb-966a-1904fafd10cc-1024x574.webp",
+    "optimizedBytes": 156094
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/about-us-family-1024x1024.png",
+    "local": "/assets/e4e4b02208-about-us-family-1024x1024.png",
+    "alt": "",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 17787,
+    "status": "downloaded"
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/22-1024x700.jpg",
+    "local": "/assets/a4aac36c6d-22-1024x700.jpg",
+    "alt": "22",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 222480,
+    "status": "downloaded",
+    "optimized": "/assets/a4aac36c6d-22-1024x700.webp",
+    "optimizedBytes": 171734
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/333-1024x700.jpg",
+    "local": "/assets/b1cdeec53d-333-1024x700.jpg",
+    "alt": "333",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 185813,
+    "status": "downloaded",
+    "optimized": "/assets/b1cdeec53d-333-1024x700.webp",
+    "optimizedBytes": 126502
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/444444-1024x700.jpg",
+    "local": "/assets/53b946487f-444444-1024x700.jpg",
+    "alt": "444444",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 225735,
+    "status": "downloaded",
+    "optimized": "/assets/53b946487f-444444-1024x700.webp",
+    "optimizedBytes": 179046
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/08/IMG_4036-copy-1024x700.jpg",
+    "local": "/assets/34dd706088-IMG_4036-copy-1024x700.jpg",
+    "alt": "IMG_4036 copy",
+    "uses": [
+      "/team/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 257579,
+    "status": "downloaded",
+    "optimized": "/assets/34dd706088-IMG_4036-copy-1024x700.webp",
+    "optimizedBytes": 214544
+  },
+  {
+    "original": "https://enerman.in/wp-content/uploads/2025/09/1753003113273.jpg",
+    "local": "/assets/4fa7eca785-1753003113273.jpg",
+    "alt": "IoT SCADA monitoring system for solar power plant operations",
+    "uses": [
+      "/why-iot-scada-is-revolutionizing-solar-power-plant-operations/"
+    ],
+    "type": "image",
+    "retain": true,
+    "bytes": 113160,
+    "status": "downloaded",
+    "optimized": "/assets/4fa7eca785-1753003113273.webp",
+    "optimizedBytes": 101038
+  }
+]

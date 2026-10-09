@@ -1,0 +1,141 @@
+{
+  "environment": "Chromium; 390×844; 4× CPU slowdown; 150 ms network latency; 200 KB/s download. Local synthetic run, not field Core Web Vitals. Results vary with host load.",
+  "paint": [
+    {
+      "name": "first-paint",
+      "time": 4000
+    },
+    {
+      "name": "first-contentful-paint",
+      "time": 4000
+    }
+  ],
+  "lcp": 4940,
+  "cls": 0,
+  "longTasks": 6,
+  "maxLongTask": 1040,
+  "resources": [
+    {
+      "name": "index-CY5AOB4F.js",
+      "bytes": 93244,
+      "duration": 2118
+    },
+    {
+      "name": "rolldown-runtime-CbXtAM7H.js",
+      "bytes": 889,
+      "duration": 177
+    },
+    {
+      "name": "motion-BVR36hRX.js",
+      "bytes": 44084,
+      "duration": 1322
+    },
+    {
+      "name": "animation-Dp7yFspy.js",
+      "bytes": 49203,
+      "duration": 1368
+    },
+    {
+      "name": "animation-fOJvfYOR.css",
+      "bytes": 757,
+      "duration": 175
+    },
+    {
+      "name": "index-C_odViC-.css",
+      "bytes": 15461,
+      "duration": 589
+    },
+    {
+      "name": "manrope-latin-wght-normal-DHIcAJRg.woff2",
+      "bytes": 25136,
+      "duration": 1022
+    },
+    {
+      "name": "sora-latin-wght-normal-DdqRvwsR.woff2",
+      "bytes": 33952,
+      "duration": 1254
+    },
+    {
+      "name": "Home-BrRKGLkI.js",
+      "bytes": 2880,
+      "duration": 819
+    },
+    {
+      "name": "HomeSections-BRMSR9lY.js",
+      "bytes": 7462,
+      "duration": 1205
+    },
+    {
+      "name": "home-DB35ufCE.js",
+      "bytes": 5574,
+      "duration": 1313
+    },
+    {
+      "name": "afa58b55c8-eman-header-logo.webp",
+      "bytes": 20058,
+      "duration": 1881
+    },
+    {
+      "name": "f9995a4867-eman-article-replace-scada-solar-plant.webp",
+      "bytes": 41952,
+      "duration": 2051
+    },
+    {
+      "name": "adcd934a8e-image.webp",
+      "bytes": 60636,
+      "duration": 2205
+    },
+    {
+      "name": "ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+      "bytes": 15008,
+      "duration": 3610
+    },
+    {
+      "name": "339a2eb367-eman-logo-ntpc.webp",
+      "bytes": 11770,
+      "duration": 466
+    },
+    {
+      "name": "9015d901f0-eman-logo-nlc.webp",
+      "bytes": 27422,
+      "duration": 848
+    },
+    {
+      "name": "0a7785e5d8-eman-logo-hal.webp",
+      "bytes": 28790,
+      "duration": 893
+    },
+    {
+      "name": "6fbf834919-eman-logo-bhel.webp",
+      "bytes": 7494,
+      "duration": 367
+    },
+    {
+      "name": "bfc63bb15d-eman-logo-bel.webp",
+      "bytes": 11584,
+      "duration": 492
+    },
+    {
+      "name": "ea001f94a9-eman-logo-gsecl.webp",
+      "bytes": 19118,
+      "duration": 644
+    },
+    {
+      "name": "c656645957-eman-logo-ccl.webp",
+      "bytes": 8068,
+      "duration": 829
+    },
+    {
+      "name": "f3b36315e0-eman-logo-iisc.webp",
+      "bytes": 12024,
+      "duration": 921
+    },
+    {
+      "name": "e5acb8379b-eman-logo-aiims.webp",
+      "bytes": 19198,
+      "duration": 999
+    }
+  ],
+  "overflow": false,
+  "touchScrollY": 425
+}
