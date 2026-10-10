@@ -1,6 +1,6 @@
-# EnerMAN — Signal Grid
+# EnerMAN — Nocturne
 
-This branch is **main2**: the Signal Grid redesign. The original main branch is unchanged.
+This branch is **main3**: the Nocturne redesign. The original main branch is unchanged.
 
 ## Run locally
 
@@ -20,10 +20,10 @@ npm run preview
 
 ## This design
 
-- Typography: Space Grotesk + DM Sans; locally hosted fonts with licenses.
-- 4 main pages: /, /solutions/, /company/, /contact/ plus a legal page.
+- Typography: Syne + Plus Jakarta Sans; locally hosted fonts with licenses.
+- 4 main pages: /, /platform/, /company/, /contact/ plus a legal page.
 - No photographic images. Native SVG/CSS geometry and scroll effects.
-- Product specifications stay together on /solutions/.
+- Product specifications stay together on /platform/.
 - Company, leadership, team, awards, news and full articles are consolidated on /company/.
 - Legacy URLs redirect to the corresponding page and section.
 - Scroll effects respect reduced motion. Mobile navigation supports Escape.

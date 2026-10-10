@@ -52,6 +52,9 @@ body {
 .site-nav a[aria-current="page"] {
   border-bottom: 2px solid var(--ink);
 }
+.nocturne .site-nav .site-button.accent {
+  color: var(--ink);
+}
 .page-progress {
   height: 2px;
   background: var(--accent);
