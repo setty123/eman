@@ -89,7 +89,7 @@ export function destination(href: string) {
   return href;
 }
 
-function SiteLink({
+export function SiteLink({
   href,
   children,
   className,
@@ -139,7 +139,7 @@ function Button({
     </SiteLink>
   );
 }
-function TextBlocks({ blocks }: { blocks: Block[] }) {
+export function TextBlocks({ blocks }: { blocks: Block[] }) {
   return (
     <div className="reading-copy">
       {blocks.map((block, i) => {
@@ -190,7 +190,7 @@ function TextBlocks({ blocks }: { blocks: Block[] }) {
     </div>
   );
 }
-function SourceDisclosure({
+export function SourceDisclosure({
   route,
   id,
   label,
@@ -216,7 +216,7 @@ function SourceDisclosure({
   );
 }
 
-function useScrollDesign() {
+export function useScrollDesign() {
   const location = useLocation();
   const navigation = useNavigationType();
   const positions = useRef(new Map<string, number>());
@@ -852,7 +852,7 @@ function CompanyContent() {
     </>
   );
 }
-function Insights() {
+export function Insights() {
   const [query, setQuery] = useState("");
   const location = useLocation();
   useEffect(() => setQuery(""), [location.hash]);
@@ -1294,7 +1294,7 @@ function Footer() {
     </footer>
   );
 }
-function Metadata() {
+export function Metadata() {
   const location = useLocation();
   useEffect(() => {
     const label =

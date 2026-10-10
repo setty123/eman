@@ -206,3 +206,55 @@ test("scroll effects respond to native scrolling and reduced motion", async ({
   await page.goto("/unavailable-page/");
   await expect(page.locator("h1")).toHaveText("Let’s reconnect.");
 });
+
+test("futuristic preview, keyboard product explorer and scroll stages", async ({
+  page,
+}) => {
+  test.skip(design.id !== "helio", "Helio-specific interactions");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const preview = page.locator(".h-console");
+  await expect(preview).toContainText("ILLUSTRATIVE DATA · NOT LIVE");
+  await preview.getByRole("button", { name: "Analyze", exact: true }).click();
+  await expect(
+    preview.getByRole("button", { name: "Analyze", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(
+    preview.getByRole("img", {
+      name: "Illustrative actual and expected solar generation curves",
+    }),
+  ).toBeVisible();
+  await preview
+    .getByRole("button", { name: "Notify", exact: true })
+    .press("Enter");
+  await expect(preview).toContainText("Inverter 03 · output deviation");
+  await expect(preview).not.toContainText("2.48");
+  await preview.getByRole("button", { name: "Monitor", exact: true }).click();
+  await expect(preview).toContainText("PLANT OUTPUT");
+
+  await page
+    .getByRole("group", { name: "Jump to a signal stage" })
+    .getByRole("button", { name: /Notify/ })
+    .click();
+  await expect(
+    page.getByRole("heading", {
+      name: "The right signal. At the right moment.",
+    }),
+  ).toBeInViewport();
+  await expect(page.locator(".h-processor")).toHaveClass(/stage-2/);
+  const picker = page.getByRole("group", { name: "Explore EnerMAN products" });
+  await picker.getByRole("button", { name: /ETi-CAST/ }).press("Enter");
+  await expect(page.locator(".h-product-display h3")).toHaveText("ETi-CAST");
+  await expect(
+    page.getByRole("link", { name: "Explore ETi-CAST", exact: true }),
+  ).toHaveAttribute("href", "/system/#eti-cast-solar-generation-forecasting");
+  await page
+    .getByRole("link", { name: "Explore ETi-CAST", exact: true })
+    .click();
+  await expect(
+    page.locator("#eti-cast-solar-generation-forecasting"),
+  ).toHaveAttribute("open", "");
+  await expect(
+    page.locator("#eti-cast-solar-generation-forecasting .reading-copy"),
+  ).toBeVisible();
+});

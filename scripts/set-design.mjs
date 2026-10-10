@@ -2,6 +2,16 @@ import fs from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 
 const designs = {
+  main7: {
+    id: "helio",
+    name: "Helio Interface",
+    companyPage: false,
+    headingFont: "Sora",
+    bodyFont: "IBM Plex Mono",
+    themeColor: "#090D12",
+    solutionsPath: "/system/",
+    solutionsLabel: "System",
+  },
   main2: {
     id: "signal",
     name: "Signal Grid",
@@ -55,7 +65,7 @@ const designs = {
 };
 const branch = process.argv[2];
 const selection = designs[branch];
-if (!selection) throw Error("Choose main2, main3, main4, main5 or main6.");
+if (!selection) throw Error("Choose main2, main3, main4, main5, main6 or main7.");
 const active = execFileSync("git", ["branch", "--show-current"], {
   encoding: "utf8",
 }).trim();

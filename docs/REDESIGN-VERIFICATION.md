@@ -1,17 +1,29 @@
-# Signal Grid — main2
+# Helio Interface — main7
 
-The complete React redesign uses four main pages plus Legal. It renders no photographic images, preserves the substantive text from all 27 source pages, and redirects the old URLs into the consolidated pages.
+The sixth design is a standalone futuristic website with its own React composition and stylesheet. It uses Sora, IBM Plex Mono, graphite, mint, lilac and warm event accents. Photographs are absent.
 
-Verified on 10 October 2026:
+## Experience
 
-- TypeScript and production build, including local prerendering of all five pages.
-- Content preservation and all internal page and section destinations.
-- All 25 legacy URL redirects.
-- Every main page at 320, 390, 768, 1440 and 1920 pixels with no horizontal overflow.
-- Mobile navigation, Escape, route navigation and browser Back.
-- Product filters, expandable specifications, direct product links and article search.
-- Required enquiry fields, prepared email review, and product datasheet enquiry mode.
-- Native scroll animation updates and reduced motion handling.
-- No browser runtime or console errors in the completed checks.
+- Three main pages: Home, System and Contact; a separate legal page.
+- A native SVG isometric solar field with animated signal paths.
+- Monitor, Analyze and Notify controls change the illustrative chart, field event and explanatory copy. Sample values are explicitly labelled illustrative, not live.
+- A scroll-driven intelligence sequence with a sticky processor schematic and accessible stage jump controls.
+- A seven-product workbench that supports native keyboard activation and links to the selected product's specifications.
+- Full original company, team, awards, news, articles, product specifications and contact information remain available in consolidated disclosures.
+- Locally hosted fonts and license files; no added dependencies.
+- Native scrolling, reduced-motion support, focus indicators, mobile navigation and Escape-to-close behavior.
+- Existing enquiry validation and reviewable email preparation. No emails sent.
 
-The initial content/navigation check found legacy article category links. These were corrected to the consolidated Insights section and that check passed on rerun. The other five checks passed in the initial run. No enquiry was sent, no hosting changes were made, and nothing was deployed.
+## Verification
+
+- Production TypeScript/Vite build and local prerender: passed for all four routes.
+- Six existing browser checks: passed (1.0 minute).
+- New futuristic interaction check: passed (8.8 seconds), covering preview modes, keyboard selection, correct product deep links and stage jump behavior.
+- Responsive checks: all four routes at 320, 390, 768, 1440 and 1920px without horizontal page overflow.
+- Original substantive paragraphs preserved; internal anchors and 25 legacy redirects verified.
+- Browser runtime and console error checks passed.
+- Desktop composition reviewed in the in-app browser; interactive Analyze and Notify modes verified directly.
+
+## Repository state
+
+Created on main7 from main2. Main and main2 through main6 remain at their previously verified commits. This redesign has not been deployed or pushed.

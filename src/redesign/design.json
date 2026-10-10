@@ -1,12 +1,17 @@
 {
-  "id": "signal",
-  "name": "Signal Grid",
-  "companyPage": true,
-  "headingFont": "Space Grotesk",
-  "bodyFont": "DM Sans",
-  "themeColor": "#F4F6F0",
-  "solutionsPath": "/solutions/",
-  "solutionsLabel": "Solutions",
-  "branch": "main2",
-  "routes": ["/", "/solutions/", "/company/", "/contact/", "/legal/"]
+  "id": "helio",
+  "name": "Helio Interface",
+  "companyPage": false,
+  "headingFont": "Sora",
+  "bodyFont": "IBM Plex Mono",
+  "themeColor": "#090D12",
+  "solutionsPath": "/system/",
+  "solutionsLabel": "System",
+  "branch": "main7",
+  "routes": [
+    "/",
+    "/system/",
+    "/contact/",
+    "/legal/"
+  ]
 }
