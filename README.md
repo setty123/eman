@@ -1,6 +1,6 @@
-# EnerMAN — Signal Grid
+# EnerMAN — Cobalt Index
 
-This branch is **main2**: the Signal Grid redesign. The original main branch is unchanged.
+This branch is **main5**: the Cobalt Index redesign. The original main branch is unchanged.
 
 ## Run locally
 
@@ -20,7 +20,7 @@ npm run preview
 
 ## This design
 
-- Typography: Space Grotesk + DM Sans; locally hosted fonts with licenses.
+- Typography: Bricolage Grotesque + Inter; locally hosted fonts with licenses.
 - 4 main pages: /, /solutions/, /company/, /contact/ plus a legal page.
 - No photographic images. Native SVG/CSS geometry and scroll effects.
 - Product specifications stay together on /solutions/.

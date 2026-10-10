@@ -8,6 +8,36 @@ const archive = JSON.parse(
   fs.readFileSync("src/redesign/content.json", "utf8"),
 );
 const errors = new WeakMap<Page, string[]>();
+test("Cobalt homepage product groups support mouse and keyboard", async ({
+  page,
+}) => {
+  test.skip(
+    design.id !== "cobalt",
+    "Cobalt uses native product accordions on Home.",
+  );
+  await page.goto("/");
+  const groups = page.locator("#solutions .solution-accordion details");
+  await expect(groups).toHaveCount(3);
+  await expect(groups.nth(0)).toHaveAttribute("open", "");
+  await groups.nth(1).locator("summary").click();
+  await expect(groups.nth(1)).toHaveAttribute("open", "");
+  await expect(
+    groups.nth(1).getByRole("link", { name: /ETi-PPC/ }),
+  ).toBeVisible();
+  await groups.nth(1).locator("summary").press("Enter");
+  await expect(groups.nth(1)).not.toHaveAttribute("open", "");
+  await groups.nth(2).locator("summary").press("Enter");
+  await expect(
+    groups.nth(2).getByRole("link", { name: /ETi-CAST/ }),
+  ).toBeVisible();
+  await groups
+    .nth(2)
+    .getByRole("link", { name: /ETi-CAST/ })
+    .click();
+  await expect(
+    page.locator("#eti-cast-solar-generation-forecasting"),
+  ).toHaveAttribute("open", "");
+});
 test.beforeEach(async ({ page }) => {
   const collected: string[] = [];
   errors.set(page, collected);
