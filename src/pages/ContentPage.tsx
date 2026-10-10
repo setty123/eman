@@ -12,6 +12,7 @@ import { FinalCTA } from "../components/Layout";
 import {
   SourceBlock,
   SourceSection,
+  CapabilitiesSection,
   sectionId,
 } from "../components/SourceContent";
 import ContactForm from "../components/ContactForm";
@@ -547,6 +548,9 @@ function Editorial({ page }: { page: SourcePage }) {
                   <ContactForm product={product?.name} />
                 </div>
               </section>
+            ) : page.route === "/about-us/" &&
+              s.heading === "From concept to commissioning" ? (
+              <CapabilitiesSection key={s.heading} section={s} index={i + 1} />
             ) : (
               <SourceSection
                 key={i}

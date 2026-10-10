@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Cpu, MonitorCog, Cloud } from "lucide-react";
 import { internalHref } from "../data/content";
 import type { Block, SourceLink, Section } from "../data/types";
 
@@ -96,6 +96,65 @@ export const sectionId = (heading: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-$/, "");
+
+export function CapabilitiesSection({
+  section,
+  index,
+}: {
+  section: Section;
+  index: number;
+}) {
+  const firstHeading = section.blocks.findIndex((b) => b.type === "h3");
+  const introduction = section.blocks
+    .slice(0, firstHeading)
+    .filter((b) => b.type !== "image");
+  const cards: Block[][] = [];
+  for (const block of section.blocks.slice(firstHeading)) {
+    if (block.type === "image") continue;
+    if (block.type === "h3") cards.push([]);
+    cards.at(-1)?.push(block);
+  }
+  const icons = [Cpu, MonitorCog, Cloud];
+  return (
+    <section
+      className="source-section capabilities-section"
+      id={sectionId(section.heading)}
+    >
+      <div className="source-section-heading">
+        <span className="mono">{String(index).padStart(2, "0")} /</span>
+        <h2>{section.heading}</h2>
+      </div>
+      <div className="capabilities-intro">
+        {introduction.map((block, i) => (
+          <SourceBlock key={i} block={block} />
+        ))}
+      </div>
+      <div className="capabilities-grid">
+        {cards.map((blocks, i) => {
+          const Icon = icons[i] || Cpu;
+          return (
+            <article
+              className="capability-card"
+              key={blocks[0].text}
+              data-reveal
+            >
+              <div className="capability-card-top" aria-hidden="true">
+                <span className="capability-icon">
+                  <Icon size={25} strokeWidth={1.6} />
+                </span>
+                <span className="mono">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              {blocks.map((block, j) => (
+                <SourceBlock key={j} block={block} />
+              ))}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export function SourceSection({
   section,
   index,

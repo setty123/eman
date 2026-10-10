@@ -8,6 +8,9 @@ import {
   ArrowUp,
   ExternalLink,
   Play,
+  Monitor,
+  SlidersHorizontal,
+  ChartNoAxesCombined,
 } from "lucide-react";
 import {
   asset,
@@ -29,11 +32,26 @@ const nav = [
 ];
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const menuButton = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
-  useEffect(() => setOpen(false), [location.pathname]);
+  const solutionsPanel = useRef<HTMLDivElement>(null);
+  const solutionsButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    setOpen(false);
+    setSolutionsOpen(false);
+  }, [location.pathname]);
+  useEffect(() => {
+    if (!solutionsOpen) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (!solutionsPanel.current?.contains(event.target as Node))
+        setSolutionsOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [solutionsOpen]);
   useEffect(() => {
     const scroll = () => setScrolled(window.scrollY > 20);
     scroll();
@@ -78,12 +96,43 @@ function Navbar() {
         <nav aria-label="Main navigation" className="desktop-nav">
           {nav.map(([label, to], i) =>
             i === 0 ? (
-              <div className="nav-dropdown" key={to}>
-                <NavLink to={to}>
+              <div
+                className={`nav-dropdown ${solutionsOpen ? "is-open" : ""}`}
+                key={to}
+                ref={solutionsPanel}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === "mouse") setSolutionsOpen(true);
+                }}
+                onPointerLeave={() => {
+                  if (!solutionsPanel.current?.contains(document.activeElement))
+                    setSolutionsOpen(false);
+                }}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget))
+                    setSolutionsOpen(false);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") {
+                    event.preventDefault();
+                    setSolutionsOpen(false);
+                    solutionsButton.current?.focus();
+                  }
+                }}
+              >
+                <NavLink to={to} onFocus={() => setSolutionsOpen(true)}>
                   {label}
-                  <ChevronDown size={13} />
                 </NavLink>
-                <div className="mega-menu">
+                <button
+                  className="solutions-toggle"
+                  aria-label="Show solutions menu"
+                  aria-expanded={solutionsOpen}
+                  aria-controls="solutions-menu"
+                  ref={solutionsButton}
+                  onClick={() => setSolutionsOpen(!solutionsOpen)}
+                >
+                  <ChevronDown size={13} />
+                </button>
+                <div className="mega-menu" id="solutions-menu">
                   <div className="mega-intro">
                     <span className="mono">THE ENERMAN ECOSYSTEM</span>
                     <h3>
@@ -91,18 +140,63 @@ function Navbar() {
                       <br />
                       To one screen.
                     </h3>
+                    <p>
+                      Monitor. Control. Forecast.
+                      <br />
+                      Connected solar intelligence.
+                    </p>
                     <Link to="/products/">
                       Explore all products <ArrowUpRight size={18} />
                     </Link>
                   </div>
-                  <div className="mega-products">
-                    {products.map((p) => (
-                      <Link key={p.name} to={p.route}>
-                        <strong>{p.name}</strong>
-                        <span>{p.label}</span>
-                      </Link>
+                  <nav className="mega-products" aria-label="Product solutions">
+                    {[
+                      { name: "Monitor", icon: Monitor },
+                      { name: "Control", icon: SlidersHorizontal },
+                      { name: "Forecast", icon: ChartNoAxesCombined },
+                    ].map(({ name, icon: Icon }) => (
+                      <div className="mega-category" key={name}>
+                        <h4 className="mega-category-title">
+                          <Icon
+                            size={17}
+                            strokeWidth={1.7}
+                            aria-hidden="true"
+                          />
+                          {name}
+                        </h4>
+                        <ul>
+                          {products
+                            .filter((p) => p.category === name)
+                            .map((p) => (
+                              <li key={p.name}>
+                                <NavLink
+                                  className="mega-product-link"
+                                  to={p.route}
+                                >
+                                  <span className="mega-product-copy">
+                                    <strong>{p.name}</strong>
+                                    <span>{p.label}</span>
+                                  </span>
+                                  <ArrowUpRight size={15} aria-hidden="true" />
+                                </NavLink>
+                              </li>
+                            ))}
+                        </ul>
+                        {name === "Forecast" && (
+                          <div className="mega-help">
+                            <p>
+                              Find the right solution
+                              <br />
+                              for your plant.
+                            </p>
+                            <Link to="/inquiry-form/">
+                              Talk to our team <ArrowUpRight size={14} />
+                            </Link>
+                          </div>
+                        )}
+                      </div>
                     ))}
-                  </div>
+                  </nav>
                 </div>
               </div>
             ) : (

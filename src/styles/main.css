@@ -330,48 +330,169 @@ div[id] {
 .mega-menu {
   display: none;
   position: absolute;
-  top: 90px;
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
-  width: min(1000px, 90vw);
+  width: min(1000px, calc(100vw - 72px));
   background: var(--ivory);
   border: 1px solid var(--line);
-  padding: 35px;
-  box-shadow: 0 20px 30px #353a2c0c;
-  grid-template-columns: 1fr 2fr;
-  gap: 45px;
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 20px 60px #353a2c18;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 18px;
 }
-.nav-dropdown:hover .mega-menu,
-.nav-dropdown:focus-within .mega-menu {
+.mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+.nav-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.solutions-toggle {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+}
+.solutions-toggle svg {
+  transition: transform 0.2s;
+}
+.nav-dropdown.is-open .solutions-toggle svg {
+  transform: rotate(180deg);
+}
+.nav-dropdown.is-open .mega-menu {
   display: grid;
 }
+.mega-intro {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--sage);
+}
+.mega-intro > .mono {
+  color: #52662e;
+  font-size: 8px;
+}
 .mega-intro h3 {
-  font-size: 27px;
-  margin: 18px 0;
+  font-size: 25px;
+  line-height: 1.35;
+  margin: 12px 0;
+}
+.mega-intro > p {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-bottom: 14px;
 }
 .mega-intro > a {
   display: flex;
   align-items: center;
-  gap: 15px;
-  font-size: 13px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 600;
+  color: #52662e;
 }
 .mega-products {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px 30px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 8px 6px 8px 0;
 }
-.mega-products a {
+.mega-category-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 10px 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  color: #52662e;
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.mega-category ul {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mega-products .mega-product-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.mega-product-link:hover,
+.mega-product-link:focus-visible,
+.mega-products .mega-product-link.active {
+  background: var(--sage);
+  color: #52662e;
+}
+.mega-product-copy {
   display: grid;
   gap: 4px;
+  min-width: 0;
 }
-.mega-products strong {
-  font-family: "Sora Variable";
-  font-size: 17px;
+.mega-product-copy strong {
+  font-family: "Sora Variable", sans-serif;
+  font-size: 15px;
   font-weight: 600;
 }
-.mega-products span {
-  font-size: 11px;
+.mega-product-copy > span {
+  font-size: 10px;
+  line-height: 1.6;
   color: var(--secondary);
+}
+.mega-product-link > svg {
+  color: #52662e;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.mega-product-link:hover > svg,
+.mega-product-link:focus-visible > svg,
+.mega-product-link.active > svg {
+  opacity: 1;
+}
+.mega-help {
+  margin: 10px 10px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.mega-help p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.mega-help a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #52662e;
+  font-size: 10px;
+  font-weight: 700;
 }
 .mobile-menu {
   background: var(--ivory);
@@ -427,7 +548,7 @@ div[id] {
 }
 .hero h1 {
   font-family: "Manrope Variable", sans-serif;
-  font-size: clamp(4rem, 6.8vw, 7rem);
+  font-size: clamp(3.2rem, 5.1vw, 5.25rem);
   line-height: 1.04;
   letter-spacing: -0.065em;
   font-weight: 500;
@@ -442,7 +563,7 @@ div[id] {
 }
 .hero .hero-notify {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.25em;
+  font-size: 1.15em;
   font-style: italic;
   font-weight: 500;
   line-height: 0.96;
@@ -1683,6 +1804,68 @@ footer {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+.capabilities-intro {
+  margin-bottom: 30px;
+  max-width: 850px;
+}
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.capability-card {
+  min-width: 0;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--ivory);
+  box-shadow: 0 8px 28px rgba(53, 58, 44, 0.035);
+}
+.capability-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  color: var(--olive);
+}
+.capability-card-top > .mono {
+  font-size: 11px;
+  opacity: 0.7;
+}
+.capability-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--sage);
+}
+.capability-card h3 {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+  min-height: 2.9em;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.capability-card .source-paragraph p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .capability-card {
+    padding: 26px;
+  }
+  .capability-card h3 {
+    font-size: 18px;
+    min-height: 0;
+  }
+}
 .source-feature-grid > .source-group {
   background: var(--ivory);
   border: 1px solid var(--line);
@@ -2143,7 +2326,7 @@ footer {
     min-height: 580px;
   }
   .hero h1 {
-    font-size: clamp(4rem, 6.7vw, 5.8rem);
+    font-size: clamp(3.2rem, 5.1vw, 4.5rem);
   }
   .hero-art {
     height: 475px;
@@ -2297,7 +2480,7 @@ footer {
     font-size: 20px;
   }
   .hero h1 {
-    font-size: clamp(3.8rem, 6.7vw, 5rem);
+    font-size: clamp(3rem, 5.1vw, 4rem);
   }
   .metric {
     padding-left: 20px;
@@ -2478,7 +2661,7 @@ footer {
     min-height: 0;
   }
   .hero h1 {
-    font-size: clamp(3.3rem, 11.6vw, 5.5rem);
+    font-size: clamp(2.5rem, 9vw, 4.2rem);
     line-height: 1.03;
     letter-spacing: -0.06em;
   }
@@ -3218,7 +3401,7 @@ footer {
     gap: 10px;
   }
   .hero h1 {
-    font-size: 3.8rem;
+    font-size: 2.85rem;
   }
   .hero-art {
     height: 350px;

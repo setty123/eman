@@ -46,7 +46,7 @@ export function Hero() {
                 </span>
               </span>
               <span className="hero-title-end" data-hero-line>
-                solar PV plants and rooftops.
+                Solar PV plants and rooftops.
               </span>
             </h1>
             <p data-reveal>
