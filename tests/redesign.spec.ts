@@ -258,3 +258,55 @@ test("futuristic preview, keyboard product explorer and scroll stages", async ({
     page.locator("#eti-cast-solar-generation-forecasting .reading-copy"),
   ).toBeVisible();
 });
+
+test("phone signal stages keep the entire animation visible without auto-scrolling", async ({
+  page,
+}, testInfo) => {
+  test.skip(design.id !== "helio", "Helio-specific phone layout");
+  for (const viewport of [
+    { width: 320, height: 568 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    for (const reducedMotion of ["reduce", "no-preference"] as const) {
+      await page.emulateMedia({ reducedMotion });
+      await page.goto("/");
+      await page.evaluate(() => document.fonts.ready);
+      const controls = page.getByRole("group", {
+        name: "Select a signal stage",
+      });
+      await controls.scrollIntoViewIfNeeded();
+      const processor = page.locator(".h-processor");
+      await expect(processor).toBeInViewport({ ratio: 1 });
+      const initialScroll = await page.evaluate(() => scrollY);
+      for (const [name, index, heading] of [
+        ["Analyze", 1, "Find the meaning between the numbers."],
+        ["Notify", 2, "The right signal. At the right moment."],
+        ["Monitor", 0, "The whole plant. One clear signal."],
+      ] as const) {
+        await controls.getByRole("button", { name: new RegExp(name) }).click();
+        await expect(processor).toHaveClass(new RegExp(`stage-${index}`));
+        await expect(processor).toBeInViewport({ ratio: 1 });
+        await expect(controls).toBeInViewport({ ratio: 1 });
+        await expect(page.locator(".h-signal-step:visible")).toHaveCount(1);
+        await expect(
+          page
+            .locator(".h-signal-step:visible")
+            .getByRole("heading", { name: heading, exact: true }),
+        ).toBeVisible();
+        expect(
+          Math.abs((await page.evaluate(() => scrollY)) - initialScroll),
+        ).toBeLessThanOrEqual(1);
+        if (
+          name === "Analyze" &&
+          viewport.width === 390 &&
+          reducedMotion === "reduce"
+        ) {
+          await page.screenshot({
+            path: testInfo.outputPath("phone-analyze.png"),
+          });
+        }
+      }
+    }
+  }
+});

@@ -577,8 +577,18 @@ const stages = [
 ];
 function SignalJourney() {
   const [active, setActive] = useState(0);
+  const [compact, setCompact] = useState(
+    () => window.matchMedia("(max-width: 620px)").matches,
+  );
   const sections = useRef<(HTMLElement | null)[]>([]);
   useEffect(() => {
+    const query = window.matchMedia("(max-width: 620px)");
+    const update = () => setCompact(query.matches);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (compact) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -591,7 +601,7 @@ function SignalJourney() {
     );
     sections.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [compact]);
   const stage = stages[active];
   return (
     <section className="h-intelligence h-wrap" id="intelligence">
@@ -604,14 +614,18 @@ function SignalJourney() {
           <div
             className="h-stage-switch"
             role="group"
-            aria-label="Jump to a signal stage"
+            aria-label={
+              compact ? "Select a signal stage" : "Jump to a signal stage"
+            }
           >
             {stages.map((s, i) => (
               <button
                 key={s.name}
                 aria-pressed={active === i}
+                aria-controls={`signal-stage-${i}`}
                 onClick={() => {
                   setActive(i);
+                  if (compact) return;
                   sections.current[i]?.scrollIntoView({
                     behavior: matchMedia("(prefers-reduced-motion: reduce)")
                       .matches
@@ -653,10 +667,15 @@ function SignalJourney() {
           </div>
           <p className="h-mono h-stage-meta">{stage.product}</p>
         </div>
-        <div className="h-journey-steps">
+        <div
+          className="h-journey-steps"
+          aria-live={compact ? "polite" : undefined}
+        >
           {stages.map((s, i) => (
             <article
               key={s.name}
+              id={`signal-stage-${i}`}
+              hidden={compact && active !== i}
               ref={(el) => {
                 sections.current[i] = el;
               }}

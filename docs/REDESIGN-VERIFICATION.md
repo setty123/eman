@@ -27,3 +27,8 @@ The sixth design is a standalone futuristic website with its own React compositi
 ## Repository state
 
 Created on main7 from main2. Main and main2 through main6 remain at their previously verified commits. This redesign has not been deployed or pushed.
+## Phone signal stage fix
+
+On screens up to 620px wide, Monitor, Analyze and Notify now update one description in place. Stage selection no longer scrolls the page, and scroll observation does not override the selected phone stage. The processor graphic adapts to viewport height.
+
+Verification: production build and all four prerendered routes passed. Three relevant browser checks passed (24.9 seconds), including all three stage selections on 320x568 and 390x844 screens with reduced motion enabled and disabled. Each selection keeps the whole graphic and controls in the viewport and changes scroll position by no more than one pixel. Existing desktop interactions and responsive navigation also passed. Direct phone-size taps in the in-app browser kept scrollY at 1205 while switching Notify and Analyze. Preview: docs/qa/helio-main7-phone-stages.png.

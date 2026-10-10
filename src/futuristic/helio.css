@@ -820,6 +820,9 @@ button:disabled {
 .h-signal-step:last-child {
   border-bottom: 0;
 }
+.h-signal-step[hidden] {
+  display: none;
+}
 .h-step-number {
   color: #91ae9c;
   font-size: 8px;
@@ -2165,7 +2168,7 @@ textarea::placeholder {
   .h-journey-sticky {
     position: relative;
     top: auto;
-    margin-top: 28px;
+    margin-top: 20px;
     width: 100%;
   }
   .h-stage-switch button {
@@ -2174,19 +2177,29 @@ textarea::placeholder {
     gap: 8px;
   }
   .h-processor {
-    min-height: 280px;
-    margin-top: 20px;
+    min-height: clamp(180px, 32svh, 250px);
+    width: min(100%, 340px);
+    margin: 14px auto 0;
   }
   .h-chip {
-    width: 106px;
-    height: 106px;
+    width: 90px;
+    height: 90px;
+    gap: 9px;
+  }
+  .h-stage-meta {
+    margin-top: 8px;
   }
   .h-journey-steps {
     width: 100%;
   }
   .h-signal-step {
     min-height: 0;
-    padding: 38px 0 42px;
+    padding: 24px 0 32px;
+    border-bottom: 0;
+  }
+  .h-signal-step.reveal {
+    opacity: 1;
+    transform: none;
   }
   .h-step-number {
     font-size: 7px;
