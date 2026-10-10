@@ -1,6 +1,6 @@
-# EnerMAN — Signal Grid
+# EnerMAN — Kiln Editorial
 
-This branch is **main2**: the Signal Grid redesign. The original main branch is unchanged.
+This branch is **main4**: the Kiln Editorial redesign. The original main branch is unchanged.
 
 ## Run locally
 
@@ -20,11 +20,11 @@ npm run preview
 
 ## This design
 
-- Typography: Space Grotesk + DM Sans; locally hosted fonts with licenses.
-- 4 main pages: /, /solutions/, /company/, /contact/ plus a legal page.
+- Typography: DM Serif Display + Outfit; locally hosted fonts with licenses.
+- 3 main pages: /, /solutions/, /contact/ plus a legal page.
 - No photographic images. Native SVG/CSS geometry and scroll effects.
 - Product specifications stay together on /solutions/.
-- Company, leadership, team, awards, news and full articles are consolidated on /company/.
+- Company, leadership, team, awards, news and full articles are consolidated within Home.
 - Legacy URLs redirect to the corresponding page and section.
 - Scroll effects respect reduced motion. Mobile navigation supports Escape.
 - The enquiry form prepares an email for review. Set VITE_CONTACT_ENDPOINT only when a real endpoint is ready.
