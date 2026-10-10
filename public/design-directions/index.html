@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#f3f2ef" />
+    <title>Five design directions | EnerMAN · main2</title>
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./directions.css" />
+    <script src="./directions.js" defer></script>
+  </head>
+  <body>
+    <header class="review-toolbar">
+      <a class="review-brand" href="#direction-tabs"
+        ><span class="review-dot"></span> ENERMAN <span>DESIGN REVIEW</span></a
+      >
+      <div class="review-actions">
+        <span class="branch-label">main2 / concepts only</span
+        ><button id="motion-toggle" type="button" aria-pressed="true">
+          Motion on <span aria-hidden="true">◉</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="review-intro">
+        <div class="review-heading">
+          <div>
+            <p class="review-kicker">A NEW CHAPTER FOR ENERMAN</p>
+            <h1>Five directions. One smarter website.</h1>
+          </div>
+          <p>
+            Zero photography. Three or four main pages.<br />Choose a direction,
+            then scroll its live preview.
+          </p>
+        </div>
+        <div
+          id="direction-tabs"
+          class="direction-tabs"
+          role="tablist"
+          aria-label="Design direction"
+        ></div>
+        <div
+          class="direction-brief"
+          id="direction-brief"
+          aria-live="polite"
+        ></div>
+      </section>
+      <div id="concept-preview" class="concept-preview" role="tabpanel"></div>
+      <section class="decision-footer">
+        <p>
+          These are design previews. The current website has not been replaced.
+        </p>
+        <p>
+          Choose a direction, or combine a layout, palette, and type pairing you
+          like.
+        </p>
+        <a href="/">Back to the current website ↗</a>
+      </section>
+    </main>
+  </body>
+</html>
