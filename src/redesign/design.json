@@ -1,12 +1,17 @@
 {
-  "id": "signal",
-  "name": "Signal Grid",
-  "companyPage": true,
-  "headingFont": "Space Grotesk",
+  "id": "current",
+  "name": "Quiet Current",
+  "companyPage": false,
+  "headingFont": "Fraunces",
   "bodyFont": "DM Sans",
-  "themeColor": "#F4F6F0",
+  "themeColor": "#F9F8F2",
   "solutionsPath": "/solutions/",
   "solutionsLabel": "Solutions",
-  "branch": "main2",
-  "routes": ["/", "/solutions/", "/company/", "/contact/", "/legal/"]
+  "branch": "main6",
+  "routes": [
+    "/",
+    "/solutions/",
+    "/contact/",
+    "/legal/"
+  ]
 }
