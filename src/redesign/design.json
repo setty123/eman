@@ -1,17 +1,12 @@
 {
-  "id": "helio",
-  "name": "Helio Interface",
+  "id": "solar",
+  "name": "Solar Ignition",
   "companyPage": false,
-  "headingFont": "Sora",
-  "bodyFont": "IBM Plex Mono",
-  "themeColor": "#090D12",
+  "headingFont": "Syne",
+  "bodyFont": "DM Sans",
+  "themeColor": "#08101F",
   "solutionsPath": "/system/",
   "solutionsLabel": "System",
-  "branch": "main7",
-  "routes": [
-    "/",
-    "/system/",
-    "/contact/",
-    "/legal/"
-  ]
+  "branch": "main8",
+  "routes": ["/", "/system/", "/contact/", "/legal/"]
 }

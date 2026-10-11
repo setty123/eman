@@ -411,3 +411,160 @@ test("desktop signal flow animates, connects its nodes and follows the visible s
     }
   }
 });
+
+test("Solar Ignition follows a reversible solar day and retains generation results", async ({
+  page,
+}, testInfo) => {
+  test.skip(design.id !== "solar", "Solar Ignition interactions");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await page.evaluate(() => document.fonts.ready);
+  const scene = page.locator(".solar-day");
+  const travel = await scene.evaluate(
+    (el) => (el as HTMLElement).offsetHeight - innerHeight,
+  );
+  const move = async (progress: number) => {
+    await page.evaluate(
+      (top) => window.scrollTo({ top, behavior: "instant" }),
+      travel * progress,
+    );
+    await expect
+      .poll(async () => Number(await scene.getAttribute("data-sun-progress")))
+      .toBeCloseTo(progress, 2);
+    return Number(await scene.getAttribute("data-generation"));
+  };
+  const dawn = await move(0.12);
+  const left = await page.locator(".solar-sun").getAttribute("transform");
+  expect(Number(left!.match(/translate\(([-\d.]+)/)![1])).toBeLessThan(300);
+  expect(dawn).toBe(0);
+  const morning = await move(0.3);
+  const peak = await move(0.5);
+  expect(peak).toBeGreaterThan(800);
+  expect(peak).toBeGreaterThan(morning);
+  await expect(
+    page.getByRole("heading", { name: "Energy becomes intelligence." }),
+  ).toBeVisible();
+  expect(
+    await page
+      .locator(".solar")
+      .evaluate((el) => getComputedStyle(el).backgroundColor),
+  ).toBe("rgb(8, 16, 31)");
+  await page.screenshot({
+    path: testInfo.outputPath("solar-midday-desktop.png"),
+  });
+  const evening = await move(0.88);
+  const right = await page.locator(".solar-sun").getAttribute("transform");
+  expect(Number(right!.match(/translate\(([-\d.]+)/)![1])).toBeGreaterThan(900);
+  expect(evening).toBeLessThan(peak);
+  expect(await move(1)).toBe(0);
+  await expect(
+    page.getByRole("heading", { name: "The sun sets. The insight stays." }),
+  ).toBeVisible();
+  expect(
+    await page
+      .locator(".solar-trace")
+      .evaluate((el) => getComputedStyle(el).strokeDashoffset),
+  ).toBe("0px");
+  const reversedPeak = await move(0.5);
+  expect(reversedPeak).toBe(peak);
+  await move(0);
+  expect(
+    await page
+      .locator(".solar")
+      .evaluate((el) => getComputedStyle(el).backgroundColor),
+  ).toBe("rgb(245, 241, 232)");
+  await page.goto("/#intelligence");
+  await expect(page.locator(".s-dashboard")).toContainText("Day's generation");
+  await expect(page.locator(".s-dashboard")).toContainText("4.28");
+  await page.getByRole("tab", { name: /Monitor/ }).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tab", { name: /Analyze/ })).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator(".s-dashboard")).toContainText("Performance ratio");
+  await page.keyboard.press("End");
+  await expect(page.getByRole("tab", { name: /Notify/ })).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator(".s-dashboard")).toContainText("Plant events");
+  await page.goto("/#ecosystem");
+  await page.getByRole("button", { name: /ETi-CAST/ }).press("Enter");
+  await expect(page.locator(".s-product-description h3")).toHaveText(
+    "ETi-CAST",
+  );
+  await page
+    .getByRole("link", { name: "Explore ETi-CAST", exact: true })
+    .click();
+  await expect(
+    page.locator("#eti-cast-solar-generation-forecasting"),
+  ).toHaveAttribute("open", "");
+});
+
+test("Solar Ignition keeps the complete sun scene and dashboard on phones", async ({
+  page,
+}, testInfo) => {
+  test.skip(design.id !== "solar", "Solar Ignition phone layout");
+  for (const viewport of [
+    { width: 320, height: 568 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    for (const reducedMotion of ["reduce", "no-preference"] as const) {
+      await page.emulateMedia({ reducedMotion });
+      await page.goto("/");
+      await page.evaluate(() => document.fonts.ready);
+      const travel = await page
+        .locator(".solar-day")
+        .evaluate((el) => (el as HTMLElement).offsetHeight - innerHeight);
+      for (const progress of [0.12, 0.5, 0.88]) {
+        await page.evaluate(
+          (top) => window.scrollTo({ top, behavior: "instant" }),
+          travel * progress,
+        );
+        await expect
+          .poll(async () =>
+            Number(
+              await page
+                .locator(".solar-day")
+                .getAttribute("data-sun-progress"),
+            ),
+          )
+          .toBeCloseTo(progress, 2);
+        await expect(page.locator(".solar-world")).toBeInViewport({ ratio: 1 });
+        await expect(page.locator(".solar-instruments")).toBeInViewport({
+          ratio: 1,
+        });
+        await expect(page.locator(".solar-chapter")).toBeInViewport({
+          ratio: 1,
+        });
+      }
+      await page.screenshot({
+        path: testInfo.outputPath(
+          `solar-phone-${viewport.width}-${reducedMotion}.png`,
+        ),
+      });
+      await page.goto("/#intelligence");
+      await page
+        .locator(".s-tabs")
+        .evaluate((el) =>
+          el.scrollIntoView({ behavior: "instant", block: "start" }),
+        );
+      const startScroll = await page.evaluate(() => scrollY);
+      for (const mode of ["Analyze", "Notify", "Monitor"]) {
+        await page.getByRole("tab", { name: new RegExp(mode) }).click();
+        await expect(page.locator(".s-tabs")).toBeInViewport({ ratio: 1 });
+        await expect(page.locator(".s-dashboard")).toBeInViewport({ ratio: 1 });
+        expect(
+          Math.abs((await page.evaluate(() => scrollY)) - startScroll),
+        ).toBeLessThan(3);
+      }
+      await expect(page.locator(".s-flow")).toContainText("FIELD");
+      await expect(page.locator(".s-flow")).toContainText("ETi-LOG");
+      await expect(page.locator(".s-flow")).toContainText("ETi-SOL");
+      await expect(page.locator(".s-flow")).toContainText("ETi-EDGE");
+    }
+  }
+});

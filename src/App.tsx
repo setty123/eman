@@ -1,1 +1,1 @@
-export { default } from "./futuristic/Helio";
+export { default } from "./solar/Solar";
