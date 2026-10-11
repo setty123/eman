@@ -310,3 +310,104 @@ test("phone signal stages keep the entire animation visible without auto-scrolli
     }
   }
 });
+
+test("desktop signal flow animates, connects its nodes and follows the visible stage", async ({
+  page,
+}, testInfo) => {
+  test.skip(design.id !== "helio", "Helio-specific circuit animation");
+  for (const width of [1280, 1920]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const reducedMotion of ["no-preference", "reduce"] as const) {
+      await page.emulateMedia({ reducedMotion });
+      await page.goto("/");
+      await page.evaluate(() => document.fonts.ready);
+      const processor = page.locator(".h-processor");
+      const particle = processor.locator(".h-travel").first();
+      const animationName = () =>
+        particle.evaluate((el) => getComputedStyle(el).animationName);
+      if (reducedMotion === "reduce") {
+        await expect(page.locator("html")).toHaveClass(/motion-off/);
+      }
+      await expect.poll(animationName).toBe("signal-flow");
+      await expect(
+        page.getByRole("button", { name: /(?:Play|Pause) signal flow/ }),
+      ).toHaveCount(0);
+      const offset = await particle.evaluate(
+        (el) => getComputedStyle(el).strokeDashoffset,
+      );
+      await expect
+        .poll(() =>
+          particle.evaluate((el) => getComputedStyle(el).strokeDashoffset),
+        )
+        .not.toBe(offset);
+      await expect(processor).toHaveAttribute(
+        "aria-label",
+        /Field data flows through the ETi-LOG logger/,
+      );
+      await expect(processor.locator(".h-chip > span")).toHaveText("LOGGER");
+      await expect(processor.locator(".h-terminal-detail")).toHaveText([
+        "ETi-SOL DASHBOARD",
+        "ETi-EDGE DASHBOARD",
+      ]);
+      expect(await processor.locator(".h-travel").count()).toBe(3);
+      expect(
+        await processor
+          .locator("svg > g")
+          .evaluateAll((groups) =>
+            groups.map((group) => [
+              group.getAttribute("data-from"),
+              group.getAttribute("data-to"),
+            ]),
+          ),
+      ).toEqual([
+        ["field", "logger"],
+        ["logger", "cloud"],
+        ["logger", "edge"],
+      ]);
+
+      const alignmentErrors = await processor.evaluate((el) => {
+        const paths = [...el.querySelectorAll<SVGPathElement>(".h-travel")];
+        return paths.flatMap((path) => {
+          const group = path.parentElement!;
+          return ["from", "to"].map((direction) => {
+            const name = group.getAttribute(`data-${direction}`);
+            const node = el
+              .querySelector(
+                name === "logger" ? ".h-chip" : `.terminal-${name} > span`,
+              )!
+              .getBoundingClientRect();
+            const endpoint = path.getPointAtLength(
+              direction === "from" ? 0 : path.getTotalLength(),
+            );
+            const point = new DOMPoint(endpoint.x, endpoint.y).matrixTransform(
+              path.getScreenCTM()!,
+            );
+            return Math.hypot(
+              point.x - node.left - node.width / 2,
+              point.y - node.top - node.height / 2,
+            );
+          });
+        });
+      });
+      alignmentErrors.forEach((error) => expect(error).toBeLessThan(1));
+
+      for (const index of [2, 1, 0, 1, 2]) {
+        await page
+          .locator(`#signal-stage-${index}`)
+          .evaluate((el) =>
+            el.scrollIntoView({ block: "center", behavior: "instant" }),
+          );
+        await expect(processor).toHaveClass(new RegExp(`stage-${index}`));
+        await expect(
+          page.locator(".h-stage-switch button").nth(index),
+        ).toHaveAttribute("aria-pressed", "true");
+      }
+      if (width === 1920 && reducedMotion === "reduce") {
+        await page.screenshot({
+          path: testInfo.outputPath("desktop-signal-flow.png"),
+        });
+      }
+      await expect.poll(animationName).toBe("signal-flow");
+    }
+  }
+});

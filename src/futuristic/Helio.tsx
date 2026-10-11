@@ -16,6 +16,7 @@ import {
   Cpu,
   Gauge,
   Menu,
+  Monitor as MonitorIcon,
   Radio,
   ShieldCheck,
   Waves,
@@ -189,7 +190,7 @@ function Field({ view }: { view: View }) {
       className={"h-field view-" + view.toLowerCase()}
       viewBox="0 0 800 520"
       role="img"
-      aria-label="Illustrative isometric solar field connected to an edge gateway and cloud platform"
+      aria-label="Illustrative solar field sending data through an ETi-LOG logger to cloud and local monitoring dashboards"
     >
       <defs>
         <linearGradient id={id + "panel"} x1="0" y1="0" x2="1" y2="1">
@@ -283,8 +284,16 @@ function Field({ view }: { view: View }) {
         stroke="#95f6c8"
         strokeWidth="1.2"
       >
-        <path d="M405 415v40L213 358h-80M650 295l88 44v-96M134 357V222l-50-26" />
-        <path className="flow-line" d="M405 415v40L213 358h-80" />
+        {[
+          "M405 415v40L213 358h-80",
+          "M135 347V148L590 58 738 132V221",
+          "M135 347V428L590 510 738 436V387",
+        ].map((path) => (
+          <g key={path}>
+            <path d={path} />
+            <path className="flow-line" d={path} />
+          </g>
+        ))}
       </g>
       <g className="h-gateway">
         <path
@@ -296,15 +305,25 @@ function Field({ view }: { view: View }) {
         <rect x="126" y="318" width="18" height="4" rx="2" fill="#a8ffce" />
         <circle cx="110" cy="350" r="2.5" fill="#a8ffce" />
       </g>
-      <g className="h-cloud-node">
-        <path d="m701 202 37-19 37 19-37 19Z" fill="#172725" stroke="#9ba9f6" />
-        <path
-          d="m701 202v28l37 19 37-19v-28M738 221v28"
-          fill="none"
-          stroke="#9ba9f6"
-        />
-        <path d="M722 206h31m-25 6h20" stroke="#c1c6ff" />
-      </g>
+      {[0, 166].map((offset) => (
+        <g
+          className="h-cloud-node"
+          key={offset}
+          transform={`translate(0 ${offset})`}
+        >
+          <path
+            d="m701 202 37-19 37 19-37 19Z"
+            fill="#172725"
+            stroke="#9ba9f6"
+          />
+          <path
+            d="m701 202v28l37 19 37-19v-28M738 221v28"
+            fill="none"
+            stroke="#9ba9f6"
+          />
+          <path d="M722 206h31m-25 6h20" stroke="#c1c6ff" />
+        </g>
+      ))}
       <g
         fill="#a0b6ae"
         fontSize="10"
@@ -312,10 +331,13 @@ function Field({ view }: { view: View }) {
         letterSpacing="1"
       >
         <text x="80" y="410">
-          EDGE GATEWAY
+          ETi-LOG LOGGER
         </text>
         <text x="673" y="173">
-          CLOUD SCADA
+          CLOUD DASHBOARD
+        </text>
+        <text x="673" y="339">
+          LOCAL DASHBOARD
         </text>
         <text x="326" y="500">
           CONNECTED SOLAR ARRAY
@@ -453,7 +475,7 @@ function InterfacePreview() {
         <span className="h-coordinate">12° N / 77° E · SCHEMATIC</span>
         <div className="h-system-note">
           <ShieldCheck size={15} />
-          <span>Field → Edge → Cloud</span>
+          <span>Field → Logger → Cloud / Edge</span>
         </div>
       </div>
       <div className="h-preview-toolbar">
@@ -553,9 +575,8 @@ const stages = [
   {
     name: "Monitor",
     title: "The whole plant.\nOne clear signal.",
-    copy: "Connect equipment through ETi-LOG. Bring plant data into cloud or local SCADA and see your solar assets together.",
+    copy: "Collect field data with the ETi-LOG logger. Monitor your plant and see results in the ETi-SOL cloud dashboard or the ETi-EDGE local dashboard.",
     label: "FIELD CONNECTIVITY",
-    Icon: Radio,
     product: "ETi-LOG / ETi-SOL / ETi-EDGE",
   },
   {
@@ -563,7 +584,6 @@ const stages = [
     title: "Find the meaning\nbetween the numbers.",
     copy: "Explore generation reports, compare inverter performance and understand downtime losses. Move from raw data to informed decisions.",
     label: "PERFORMANCE INTELLIGENCE",
-    Icon: Activity,
     product: "REPORTS / RANKING / LOSS ANALYSIS",
   },
   {
@@ -571,7 +591,6 @@ const stages = [
     title: "The right signal.\nAt the right moment.",
     copy: "Track plant alerts, review events and bring issues to your team's attention. Give your operators a clear place to start.",
     label: "OPERATIONAL AWARENESS",
-    Icon: Bell,
     product: "ALERTS / EVENT TRACKING / RESPONSE",
   },
 ];
@@ -589,18 +608,34 @@ function SignalJourney() {
   }, []);
   useEffect(() => {
     if (compact) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible.length)
-          setActive(Number((visible[0].target as HTMLElement).dataset.stage));
-      },
-      { rootMargin: "-15% 0px -35% 0px", threshold: [0, 0.2, 0.5] },
-    );
-    sections.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const focus = window.innerHeight / 2;
+      let closest = 0;
+      let distance = Infinity;
+      sections.current.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const nextDistance = Math.abs(rect.top + rect.height / 2 - focus);
+        if (nextDistance < distance) {
+          closest = index;
+          distance = nextDistance;
+        }
+      });
+      setActive(closest);
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
   }, [compact]);
   const stage = stages[active];
   return (
@@ -640,24 +675,55 @@ function SignalJourney() {
               </button>
             ))}
           </div>
-          <div className={"h-processor stage-" + active} aria-hidden="true">
+          <div
+            className={"h-processor stage-" + active}
+            role="img"
+            aria-label="Field data flows through the ETi-LOG logger to ETi-SOL cloud and ETi-EDGE local dashboards for monitoring and results"
+          >
             <div className="h-processor-grid" />
             <div className="h-chip">
-              <stage.Icon size={39} strokeWidth={1} />
-              <span>{stage.name.toUpperCase()}</span>
-              <small>ETi INTELLIGENCE</small>
+              <Radio size={39} strokeWidth={1} />
+              <span>LOGGER</span>
+              <small>ETi-LOG</small>
             </div>
-            {[0, 1, 2, 3].map((i) => (
-              <div key={i} className={"h-terminal terminal-" + i}>
-                <span />
-                <small>{["FIELD", "EDGE", "CLOUD", "OPERATOR"][i]}</small>
+            <div className="h-terminal terminal-field">
+              <span />
+              <small>FIELD</small>
+            </div>
+            {[
+              ["cloud", "ETi-SOL"],
+              ["edge", "ETi-EDGE"],
+            ].map(([name, product]) => (
+              <div
+                key={name}
+                className={"h-terminal h-dashboard-terminal terminal-" + name}
+              >
+                <span>
+                  <MonitorIcon size={17} strokeWidth={1} />
+                </span>
+                <small>{name.toUpperCase()}</small>
+                <small className="h-terminal-detail">{product} DASHBOARD</small>
               </div>
             ))}
-            <svg viewBox="0 0 420 350">
-              <path d="M76 80H170V136M345 80H250V136M76 275H170V215M345 275H250V215" />
+            <svg viewBox="0 0 420 350" preserveAspectRatio="none">
+              {[
+                ["field", "logger", "M60 175H210"],
+                ["logger", "cloud", "M210 175H285V95H360"],
+                ["logger", "edge", "M210 175H285V255H360"],
+              ].map(([from, to, path], i) => (
+                <g key={path} data-from={from} data-to={to}>
+                  <path d={path} />
+                  <path
+                    className="h-travel"
+                    d={path}
+                    pathLength="100"
+                    style={{ "--flow-delay": `${i * -0.75}s` } as CSSProperties}
+                  />
+                </g>
+              ))}
               <path
-                className="h-travel"
-                d="M76 80H170V136M345 80H250V136M76 275H170V215M345 275H250V215"
+                className="h-flow-arrow"
+                d="M96 171l5 4-5 4M316 91l5 4-5 4M316 251l5 4-5 4"
               />
             </svg>
             <div className="h-processor-status">

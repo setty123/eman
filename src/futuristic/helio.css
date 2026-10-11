@@ -405,7 +405,7 @@ button:disabled {
   stroke: #c9ffdb;
   stroke-width: 2;
   stroke-dasharray: 20 250;
-  animation: flow 7s linear infinite;
+  animation: flow 7s linear infinite !important;
 }
 .h-readout {
   position: absolute;
@@ -731,9 +731,11 @@ button:disabled {
 }
 .h-processor > svg .h-travel {
   stroke: var(--mint);
-  stroke-width: 1.5;
-  stroke-dasharray: 10 170;
-  animation: flow 5s linear infinite;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 7 93;
+  /* Keep this subtle signal flow running; page motion follows its own preference. */
+  animation: signal-flow 3s linear var(--flow-delay, 0s) infinite !important;
 }
 .h-terminal {
   position: absolute;
@@ -741,7 +743,8 @@ button:disabled {
   flex-direction: column;
   gap: 8px;
   align-items: center;
-  width: 46px;
+  width: 78px;
+  transform: translateX(-50%);
   color: #93aa9a;
   z-index: 1;
 }
@@ -764,21 +767,38 @@ button:disabled {
   font-size: 7px;
   letter-spacing: 0.06em;
 }
-.terminal-0 {
-  left: 12%;
-  top: 19%;
+.terminal-field {
+  left: 14.285714%;
+  top: calc(50% - 11px);
 }
-.terminal-1 {
-  right: 12%;
-  top: 19%;
+.terminal-cloud {
+  left: 85.714286%;
+  top: calc(27.142857% - 14px);
 }
-.terminal-2 {
-  left: 12%;
-  bottom: 16%;
+.terminal-edge {
+  left: 85.714286%;
+  top: calc(72.857143% - 14px);
 }
-.terminal-3 {
-  right: 12%;
-  bottom: 16%;
+.h-dashboard-terminal {
+  gap: 5px;
+}
+.h-dashboard-terminal > span {
+  width: 42px;
+  height: 28px;
+  border-radius: 3px;
+  color: var(--mint);
+}
+.h-dashboard-terminal > span:after {
+  display: none;
+}
+.h-dashboard-terminal .h-terminal-detail {
+  font-size: 5px;
+  letter-spacing: 0;
+  color: #748d7d;
+}
+.h-processor > svg .h-flow-arrow {
+  stroke: #a2f6cc80;
+  stroke-width: 1.5;
 }
 .h-processor-status {
   position: absolute;
@@ -1686,6 +1706,11 @@ textarea::placeholder {
 @keyframes flow {
   to {
     stroke-dashoffset: -540;
+  }
+}
+@keyframes signal-flow {
+  to {
+    stroke-dashoffset: -100;
   }
 }
 @keyframes tile-signal {

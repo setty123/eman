@@ -26,9 +26,19 @@ The sixth design is a standalone futuristic website with its own React compositi
 
 ## Repository state
 
-Created on main7 from main2. Main and main2 through main6 remain at their previously verified commits. This redesign has not been deployed or pushed.
+Created on main7 from main2. Main and main2 through main6 remain at their previously verified commits. The redesign is maintained on main7. No deployment has been performed.
 ## Phone signal stage fix
 
 On screens up to 620px wide, Monitor, Analyze and Notify now update one description in place. Stage selection no longer scrolls the page, and scroll observation does not override the selected phone stage. The processor graphic adapts to viewport height.
 
 Verification: production build and all four prerendered routes passed. Three relevant browser checks passed (24.9 seconds), including all three stage selections on 320x568 and 390x844 screens with reduced motion enabled and disabled. Each selection keeps the whole graphic and controls in the viewport and changes scroll position by no more than one pixel. Existing desktop interactions and responsive navigation also passed. Direct phone-size taps in the in-app browser kept scrollY at 1205 while switching Notify and Analyze. Preview: docs/qa/helio-main7-phone-stages.png.
+
+## Continuous signal flow and corrected data path
+
+The signal animation plays continuously on desktop and phone, including when the browser reports reduced motion. There are no play or pause controls. Other page motion follows the existing reduced-motion preference.
+
+The path is Field → ETi-LOG logger → ETi-SOL cloud and ETi-EDGE local monitoring dashboards. Both the processor schematic and opening field illustration follow this path. The processor has three animated routes, with terminal positions matched to SVG coordinates at every width. Desktop stage selection follows the narrative nearest the viewport centre. Phone stage selection stays in place without automatic scrolling.
+
+The product catalog retains its previous category-column layout and complete product details. The compact catalog experiment has been reverted.
+
+Verification: the final production build and all four prerendered routes passed. Focused browser checks passed for animated dash progression, route direction, node alignment at 1280px and 1920px, stage selection in both scroll directions, and phone selections at 320x568 and 390x844. The restored product layout was verified directly in the local preview: original category columns, full specifications, and no compact feature cards. Main remains unchanged; no deployment has been performed. Preview: docs/qa/helio-main7-desktop-signal-flow.png.
